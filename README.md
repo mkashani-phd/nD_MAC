@@ -8,22 +8,20 @@ This project implements a robust Message Authentication Code (MAC) generator and
 
 The project is organized as follows:
 
-ND_MAC/
-│
-├── Book/
-│   ├── ...
-│
-├── src/
-│   ├── __pycache__/
-│   ├── tests/
-│   │   ├── __init__.py
-│   │   └── nDMAC_test.py
-│   ├── __init__.py
-│   └── nD_MAC.py
-│
-├── LICENSE
-├── README.md
-└── Example.ipynb
+
+- **ND_MAC/**
+  - **Book (submodule)**
+  - **src/**
+    - `__pycache__/`
+    - **tests/**
+      - `__init__.py`
+      - `nDMAC_test.py`
+    - `__init__.py`
+    - `nD_MAC.py`
+  - `LICENSE`
+  - `README.md`
+  - `Example.ipynb`
+
 
 - Book/: Contains the `Packet` and `Page` classes.
 - src/: Contains the main implementation (`nD_MAC.py`) and the unit tests (`tests/nDMAC_test.py`).
