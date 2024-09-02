@@ -14,8 +14,8 @@ class MACGenerator:
         """
         self.secret_key = secret_key
         self.digestmod = digestmod
-        self.X = X.T
-        self.Y = Y
+        self.XT = np.array(X.T , dtype=int)
+        self.Y = np.array(Y, dtype=int)
 
     def calculate_hmac(self, message: bytes) -> bytes:
         """
@@ -38,7 +38,7 @@ class MACGenerator:
         messages = np.array([packet.message for packet in page.packets], dtype=object)
         
         # Efficiently concatenate messages using matrix multiplication
-        concatenated_messages = np.dot(self.X, messages)
+        concatenated_messages = np.dot(self.XT, messages)
 
         # Calculate HMACs for each concatenated message
         tags = np.vectorize(self.calculate_hmac, otypes=[object])(concatenated_messages)
