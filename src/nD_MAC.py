@@ -1,8 +1,7 @@
 import numpy as np
 import hmac
 import sys, time
-sys.path.append('../')
-from Book import Packet, Page
+from .Book import Packet, Page
 
 
 class MACGenerator:
@@ -70,7 +69,7 @@ class MACChecker:
         """
         return hmac.new(self.secret_key, message, digestmod= self.digestmod).digest()
 
-    def check_page(self, page: Page) -> bool:
+    def check_page(self, page: Page) -> tuple:
         """
         Check the MACs in the page based on matrices X and Y.
 

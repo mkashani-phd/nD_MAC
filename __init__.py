@@ -1,3 +1,3 @@
-from .src.nD_MAC import MACGenerator, MACChecker
+from .src import MACGenerator, MACChecker, Packet, Page, SlidingBook
 
-__all__ = ['MACGenerator', 'MACChecker']
+__all__ = ['MACGenerator', 'MACChecker', 'Packet', 'Page', 'SlidingBook']
