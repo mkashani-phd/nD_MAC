@@ -54,8 +54,8 @@ class MACChecker:
         self.secret_key = secret_key
         self.digestmod = digestmod
         self.X = X
-        self.XT = X.T
-        self.Y = Y
+        self.XT = np.array(X, dtype=int).T
+        self.Y = np.array(Y, dtype=int)
         self.offset = offset
         
 
