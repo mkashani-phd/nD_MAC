@@ -13,7 +13,7 @@ class MACGenerator:
         """
         self.secret_key = secret_key
         self.digestmod = digestmod
-        self.XT = np.array(X.T , dtype=int)
+        self.XT = np.array(X , dtype=int).T
         self.Y = np.array(Y, dtype=int)
 
     def calculate_hmac(self, message: bytes) -> bytes:
