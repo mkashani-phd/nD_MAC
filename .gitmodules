@@ -1,3 +1,0 @@
-[submodule "src/Book"]
-	path = src/Book
-	url = git@github.com:mkashani-phd/Book.git 
