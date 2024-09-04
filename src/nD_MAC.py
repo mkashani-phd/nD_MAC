@@ -96,9 +96,9 @@ class MACChecker:
         concatenated_message = b''.join(modified_messages)
 
         current_time = time.time()
-        # latency = current_time  - np.fromiter((packet.timestamp for packet in page.packets if packet.timestamp !=0), dtype=float)
-        latency  = np.array([current_time - packet.timestamp for i in range(len(page.packets)) for packet in page.packets if packet.timestamp !=0])
-
+        latency = current_time  - np.fromiter((packet.timestamp for packet in page.packets if packet.timestamp !=0), dtype=float)
+        # latency  = np.array([current_time - packet.timestamp for i in range(len(page.packets)) for packet in page.packets if packet.timestamp !=0])
+        # print(latency)
         del page.packets
         return concatenated_message, verification_counts, latency
 
