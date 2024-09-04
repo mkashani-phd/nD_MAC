@@ -89,6 +89,7 @@ class MACChecker:
         # Count the number of times each packet was verified
         verified_tags = np.dot(verification_results.astype(int), self.Y)
         verification_counts = np.dot(self.X, verified_tags)
+        
 
         modified_messages = np.where(verification_counts > 0,
                                      messages,
@@ -96,9 +97,9 @@ class MACChecker:
         concatenated_message = b''.join(modified_messages)
 
         current_time = time.time()
-        latency = current_time  - np.fromiter((packet.timestamp for packet in page.packets if packet.timestamp !=0), dtype=float)
+
+        latency = current_time  - np.fromiter((packet.timestamp for packet in page.packets[verification_counts > 0] if packet.timestamp !=0), dtype=float)
         # latency  = np.array([current_time - packet.timestamp for i in range(len(page.packets)) for packet in page.packets if packet.timestamp !=0])
-        # print(latency)
         del page.packets
         return concatenated_message, verification_counts, latency
 
